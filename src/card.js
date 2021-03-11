@@ -1,10 +1,13 @@
+import React, { useState } from "react";
+import './App.css';
 
-
-function Card(data) {
-    let image = data.cards[0].image;
-    let angle = Math.random() * 90 - 45;
-    let randomX = Math.random() * 40 - 20;
-    let randomY = Math.random() * 40 - 20;
+function Card({name,image}) {
+    const [{ angle, randomX, randomY }] = useState({
+        
+     angle: Math.random() * 90 - 45,
+     randomX: Math.random() * 40 - 20,
+     randomY: Math.random() * 40 - 20,
+    });
           
     let transform = `translate(${randomX}px, ${randomY}px) rotate(${angle}deg)`
 
@@ -12,7 +15,7 @@ function Card(data) {
         <img className='Card'
             style={{ transform }}
             src={image}
-            alt=''
+            alt={name}
         />
     )
 };
